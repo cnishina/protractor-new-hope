@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+</head>
+<body>
+<h1>Fake Login Page!</h1>
+<p><label>User:</label><input id="user" class="user" value="Bob"></p>
+<p><label>Password:</label><input class="password" type="password"></p>
+<p><button id="login" type="submit" onclick="login()">Login</button></p>
+<script>
+  /* In a real application, this might call to a server to generate a JWT
+     auth token for testing purposes. */
+  function login() {
+    const user = document.getElementById('user').value;
+    const authToken = JSON.stringify({user, timestamp: Date.now()});
+    localStorage.setItem('auth', authToken);
+    window.location = "/prisoners";
+  }
+</script>
+</body>
+</html>
